@@ -56,16 +56,27 @@ function App() {
 			img: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=600",
 		},
 		{
+			id: 9,
 			name: "caleb",
 			role: "dev",
 			img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300",
 		},
 		{
+			id: 10,
 			name: "caleb",
 			role: "dev",
 			img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/1/alex-vladi-konovalov.jpg",
 		},
 	]);
+	function updateEmployee(id, newName, newRole) {
+		const updatedEmployees = employees.map((employee) => {
+			if (id == employee.id) {
+				return { ...employee, name: newName, role: newRole };
+			}
+			return employee;
+		});
+		setEmployees(updatedEmployees);
+	}
 	const showEmployees = true;
 	return (
 		<div className='App'>
@@ -84,10 +95,12 @@ function App() {
 							console.log(employee);
 							return (
 								<Employee
-									key={uuidv4()}
+									key={employee.id}
+									id={employee.id}
 									name={employee.name}
 									role={employee.role}
 									img={employee.img}
+									updateEmployee={updateEmployee}
 								/>
 							);
 						})}
