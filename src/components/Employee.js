@@ -11,12 +11,8 @@ function Employee(props) {
 				/>
 				<div className='text-c enter space-y-2 sm:text-left'>
 					<div className='space-y-0.5'>
-						<p className='text-lg text-black font-semibold'>
-							{props.name}
-						</p>
-						<p className='text-slate-500 font-medium'>
-							{props.role}
-						</p>
+						<p className='text-lg text-black font-semibold'>{props.name}</p>
+						<p className='text-slate-500 font-medium'>{props.role}</p>
 					</div>
 					<EditEmployee
 						id={props.id}
